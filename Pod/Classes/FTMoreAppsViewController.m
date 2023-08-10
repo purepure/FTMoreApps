@@ -329,7 +329,7 @@
                 NSString *urlString = screenshots[i];
                 NSURL *url = [NSURL URLWithString:urlString];
                 
-                [[SDWebImageManager sharedManager] downloadImageWithURL:url options:SDWebImageContinueInBackground progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+                [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:url options:SDWebImageContinueInBackground progress:nil completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
                     if (image) {
                         if (image.size.width > image.size.height) {
                             if (i == 0) {
